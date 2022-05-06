@@ -1,0 +1,26 @@
+description: S32K14 GPIO node
+
+compatible: "nxp,s32k14-gpio"
+
+include: [gpio-controller.yaml, base.yaml]
+
+properties:
+    reg:
+      required: true
+
+    label:
+      required: true
+
+    "#gpio-cells":
+      const: 2
+
+    nxp,s32k14-port:
+      required: true
+      type: phandle
+      description: |
+        A phandle reference to the device tree node that contains the pinmux
+        port associated with this GPIO controller.
+
+gpio-cells:
+  - pin
+  - flags
